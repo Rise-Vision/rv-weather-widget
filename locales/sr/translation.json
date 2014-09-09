@@ -1,0 +1,118 @@
+{
+    "settings": "Podešavanja vremena",
+    "save": "Sačuvaj",
+    "cancel": "Otkaži",
+    "help": "Pomoć",
+    "layout": {
+        "label": "Layout",
+        "custom": "Custom",
+        "current": "Trenutno Vreme",
+        "three-day": "Prognoza za 3 dana",
+        "current-and-three-day": "Trenutno vreme i progonza za 3 dana"
+    },
+    "current-temp-font": {
+        "font": "Font trenutne temperature",
+        "font-url": "Font URL trenutne temperature",
+        "font-size": "Veličina fonta trenutne temperature",
+        "modal-title": "Fontovi",
+        "font-variants": "Varijante fontova",
+        "bold": "Bold",
+        "italic": "Italic",
+        "color": "Boja trenutne temperature",
+        "text": "Sample Text trenutne temperature"
+    },
+    "forecast-temp-font": {
+        "font": "Prognoza vremena font",
+        "font-url": "Prognoza vremena Font URL",
+        "font-size": "Prognoza vremena Font Size",
+        "modal-title": "Fontovi",
+        "font-variants": "Varijante fontova",
+        "bold": "Bold",
+        "italic": "Italic",
+        "color": "Prognoza vremena Boja",
+        "text": "Prognoza vremena Sample Text"
+    },
+    "forecast-day-font": {
+        "font": "Prognoza Dan Font",
+        "font-url": "Prognoza Dan Font URL",
+        "font-size": "Prognoza Dan Font Size",
+        "modal-title": "Fonts",
+        "font-variants": "Font Variants",
+        "bold": "Bold",
+        "italic": "Italic",
+        "color": "Prognoza Dan Boja",
+        "text": "Prognoza Dan Sample Text"
+    },
+    "layout-url": "Layout URL",
+    "address": {
+        "label": "Adresa",
+        "geolocation": "Geolokacija",
+        "display": "Display Adresa",
+        "custom": "Custom Adresa"
+    },
+    "custom-address": "Tvoja Custom Adresa",
+    "address-font": {
+        "font": "Font",
+        "font-url": "Font URL",
+        "font-size": "Veličina Fonta",
+        "modal-title": "Fonts",
+        "font-variants": "Font Varijante",
+        "bold": "Bold",
+        "italic": "Italic",
+        "color": "Boja",
+        "text": "Adresa Sample Text"
+    },
+    "description": {
+        "label": "Adresa Opis",
+        "none": "None",
+        "service": "From Service",
+        "custom": "Custom opis"
+    },
+    "custom-description": "Tvoj Custom Opis",
+    "show-humidity": "Prikaži Vlažnost vazduha i vetar",
+    "wind-speed": {
+        "label": "Vetar",
+        "kph": "km/h",
+        "mph": "m/h"
+    },
+    "humidity-font": {
+        "font": "Font",
+        "font-url": "Font URL",
+        "font-size": "Font Veličina",
+        "modal-title": "Fonts",
+        "font-variants": "Font Varijante",
+        "bold": "Bold",
+        "italic": "Italic",
+        "color": "Color",
+        "text": "Vlažnost vazduha & Vetar Sample Text"
+    },
+    "unit": {
+        "label": "Jedinica mere",
+        "celsius": "Celsius",
+        "fahrenheit": "Fahrenheit"
+    },
+    "background-color": {
+        "color": "Boja pozadine"
+    },
+    "terms": "Prihvatam da se trenunto za ovaj Widget ne naplaćuje, ali mogući datum početka naplate još treba da se odredi, nakon čega će se za ovaj widget naplaćivati 2$ po Display-u, svaki mesec.",
+    "monday": "Ponedeljak",
+    "tuesday": "Utorak",
+    "wednesday": "Sreda",
+    "thursday": "Četvrtak",
+    "friday": "Petak",
+    "saturday": "Subota",
+    "sunday": "Nedelja",
+    "humidity": "Vlažnost vazduha",
+    "wind": "Vetar",
+    "at": "pri brzini od",
+    "mph": "m/h",
+    "kph": "km/h",
+    "N": "S",
+    "S": "J",
+    "E": "I",
+    "W": "Z",
+    "NE": "SI",
+    "NW": "SZ",
+    "SE": "JI",
+    "SW": "JZ"
+}
