@@ -1,0 +1,298 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: node-gettext\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"X-Generator: Poedit 1.6.9\n"
+
+msgid "settings"
+msgstr "Podešavanja vremena"
+
+msgid "save"
+msgstr "Sačuvaj"
+
+msgid "cancel"
+msgstr "Otkaži"
+
+msgid "help"
+msgstr "Pomoć"
+
+msgid "layout##label"
+msgstr "Layout"
+
+msgid "layout##custom"
+msgstr "Custom"
+
+msgid "layout##current"
+msgstr "Trenutno Vreme"
+
+msgid "layout##three-day"
+msgstr "Prognoza za 3 dana"
+
+msgid "layout##current-and-three-day"
+msgstr "Trenutno vreme i progonza za 3 dana"
+
+msgid "current-temp-font##font"
+msgstr "Font trenutne temperature"
+
+msgid "current-temp-font##font-url"
+msgstr "Font URL trenutne temperature"
+
+msgid "current-temp-font##font-size"
+msgstr "Veličina fonta trenutne temperature"
+
+msgid "current-temp-font##modal-title"
+msgstr "Fontovi"
+
+msgid "current-temp-font##font-variants"
+msgstr "Varijante fontova"
+
+msgid "current-temp-font##bold"
+msgstr "Bold"
+
+msgid "current-temp-font##italic"
+msgstr "Italic"
+
+msgid "current-temp-font##color"
+msgstr "Boja trenutne temperature"
+
+msgid "current-temp-font##text"
+msgstr "Sample Text trenutne temperature"
+
+msgid "forecast-temp-font##font"
+msgstr "Prognoza vremena font"
+
+msgid "forecast-temp-font##font-url"
+msgstr "Prognoza vremena Font URL"
+
+msgid "forecast-temp-font##font-size"
+msgstr "Prognoza vremena Font Size"
+
+msgid "forecast-temp-font##modal-title"
+msgstr "Fontovi"
+
+msgid "forecast-temp-font##font-variants"
+msgstr "Varijante fontova"
+
+msgid "forecast-temp-font##bold"
+msgstr "Bold"
+
+msgid "forecast-temp-font##italic"
+msgstr "Italic"
+
+msgid "forecast-temp-font##color"
+msgstr "Prognoza vremena Boja"
+
+msgid "forecast-temp-font##text"
+msgstr "Prognoza vremena Sample Text"
+
+msgid "forecast-day-font##font"
+msgstr "Prognoza Dan Font"
+
+msgid "forecast-day-font##font-url"
+msgstr "Prognoza Dan Font URL"
+
+msgid "forecast-day-font##font-size"
+msgstr "Prognoza Dan Font Size"
+
+msgid "forecast-day-font##modal-title"
+msgstr "Fonts"
+
+msgid "forecast-day-font##font-variants"
+msgstr "Font Variants"
+
+msgid "forecast-day-font##bold"
+msgstr "Bold"
+
+msgid "forecast-day-font##italic"
+msgstr "Italic"
+
+msgid "forecast-day-font##color"
+msgstr "Prognoza Dan Boja"
+
+msgid "forecast-day-font##text"
+msgstr "Prognoza Dan Sample Text"
+
+msgid "layout-url"
+msgstr "Layout URL"
+
+msgid "address##label"
+msgstr "Adresa"
+
+msgid "address##geolocation"
+msgstr "Geolokacija"
+
+msgid "address##display"
+msgstr "Display Adresa"
+
+msgid "address##custom"
+msgstr "Custom Adresa"
+
+msgid "custom-address"
+msgstr "Tvoja Custom Adresa"
+
+msgid "address-font##font"
+msgstr "Font"
+
+msgid "address-font##font-url"
+msgstr "Font URL"
+
+msgid "address-font##font-size"
+msgstr "Veličina Fonta"
+
+msgid "address-font##modal-title"
+msgstr "Fonts"
+
+msgid "address-font##font-variants"
+msgstr "Font Varijante"
+
+msgid "address-font##bold"
+msgstr "Bold"
+
+msgid "address-font##italic"
+msgstr "Italic"
+
+msgid "address-font##color"
+msgstr "Boja"
+
+msgid "address-font##text"
+msgstr "Adresa Sample Text"
+
+msgid "description##label"
+msgstr "Adresa Opis"
+
+msgid "description##none"
+msgstr "None"
+
+msgid "description##service"
+msgstr "From Service"
+
+msgid "description##custom"
+msgstr "Custom opis"
+
+msgid "custom-description"
+msgstr "Tvoj Custom Opis"
+
+msgid "show-humidity"
+msgstr "Prikaži Vlažnost vazduha i vetar"
+
+msgid "wind-speed##label"
+msgstr "Vetar"
+
+msgid "wind-speed##kph"
+msgstr "km/h"
+
+msgid "wind-speed##mph"
+msgstr "m/h"
+
+msgid "humidity-font##font"
+msgstr "Font"
+
+msgid "humidity-font##font-url"
+msgstr "Font URL"
+
+msgid "humidity-font##font-size"
+msgstr "Font Veličina"
+
+msgid "humidity-font##modal-title"
+msgstr "Fonts"
+
+msgid "humidity-font##font-variants"
+msgstr "Font Varijante"
+
+msgid "humidity-font##bold"
+msgstr "Bold"
+
+msgid "humidity-font##italic"
+msgstr "Italic"
+
+msgid "humidity-font##color"
+msgstr "Color"
+
+msgid "humidity-font##text"
+msgstr "Vlažnost vazduha & Vetar Sample Text"
+
+msgid "unit##label"
+msgstr "Jedinica mere"
+
+msgid "unit##celsius"
+msgstr "Celsius"
+
+msgid "unit##fahrenheit"
+msgstr "Fahrenheit"
+
+msgid "background-color##color"
+msgstr "Boja pozadine"
+
+msgid "terms"
+msgstr ""
+"Prihvatam da se trenunto za ovaj Widget ne naplaćuje, ali mogući datum "
+"početka naplate još treba da se odredi, nakon čega će se za ovaj widget "
+"naplaćivati 2$ po Display-u, svaki mesec."
+
+msgid "monday"
+msgstr "Ponedeljak"
+
+msgid "tuesday"
+msgstr "Utorak"
+
+msgid "wednesday"
+msgstr "Sreda"
+
+msgid "thursday"
+msgstr "Četvrtak"
+
+msgid "friday"
+msgstr "Petak"
+
+msgid "saturday"
+msgstr "Subota"
+
+msgid "sunday"
+msgstr "Nedelja"
+
+msgid "humidity"
+msgstr "Vlažnost vazduha"
+
+msgid "wind"
+msgstr "Vetar"
+
+msgid "at"
+msgstr "pri brzini od"
+
+msgid "mph"
+msgstr "m/h"
+
+msgid "kph"
+msgstr "km/h"
+
+msgid "N"
+msgstr "S"
+
+msgid "S"
+msgstr "J"
+
+msgid "E"
+msgstr "I"
+
+msgid "W"
+msgstr "Z"
+
+msgid "NE"
+msgstr "SI"
+
+msgid "NW"
+msgstr "SZ"
+
+msgid "SE"
+msgstr "JI"
+
+msgid "SW"
+msgstr "JZ"
