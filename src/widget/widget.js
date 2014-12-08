@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 var prefs = new gadgets.Prefs(), weather = null;
 
 //No right clicks.
@@ -470,3 +471,4 @@ RiseVision.Weather.Controller.prototype.convertTemp = function(temp) {//Angular 
 		return parseInt(temp);
 	}
 }
+/* jshint ignore:end */
