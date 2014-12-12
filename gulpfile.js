@@ -143,22 +143,23 @@
   // e2e testing
   gulp.task("html:e2e", factory.htmlE2E({
     files: ["./src/settings.html", "./src/current.html"],
+    e2eMockData: "../test/mock-data.js"
   }));
 
   gulp.task("e2e:server", ["config", "html:e2e"], factory.testServer());
 
   gulp.task("test:e2e:settings", ["webdriver_update"], factory.testE2EAngular({
-    testFiles: "test/e2e/settings-scenarios.js"}
-  ));
+    testFiles: "test/e2e/settings-scenarios.js"
+  }));
 
   gulp.task("test:e2e:widget", factory.testE2E({
-      testFiles: "test/e2e/widget-scenarios.js"}
-  ));
+    testFiles: "test/e2e/widget-scenarios.js"
+  }));
 
   gulp.task("e2e:server-close", factory.testServerClose());
 
   gulp.task("test:e2e", function(cb) {
-    runSequence(["html:e2e", "e2e:server"], "test:e2e:settings", "e2e:server-close", cb);
+    runSequence(["html:e2e", "e2e:server"], "test:e2e:settings", "test:e2e:widget", "e2e:server-close", cb);
   });
 
   // Unit testing
