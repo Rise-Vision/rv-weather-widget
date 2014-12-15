@@ -66,6 +66,27 @@
     }
   }
   </style>
+</head>
+<body>
+  <div class="container">
+    <div class="info">
+      <div>
+        <span class="city"></span>
+      </div>
+      <div class="humidity-wind">
+        <span class="humidity"></span>
+        <span>&#149;</span>
+        <span class="wind"></span>
+      </div>
+    </div>
+    <div class="days">
+      <div class="icon-wrapper text-center">
+        <img src="" class="current-icon img-responsive" />
+      </div>
+      <div class="current-temp text-center"></div>
+    </div>
+  </div>
+  <div class="error"></div>
 
   <script src="http://www.google.com/jsapi"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -88,27 +109,7 @@
   <script src="widget/provider.js"></script>
   <script src="widget/analytics.js"></script>
   <!-- endbuild -->
-</head>
-<body>
-  <div class="container">
-    <div class="info">
-      <div>
-        <span class="city"></span>
-      </div>
-      <div class="humidity-wind">
-        <span class="humidity"></span>
-        <span>&#149;</span>
-        <span class="wind"></span>
-      </div>
-    </div>
-    <div class="days">
-      <div class="icon-wrapper text-center">
-        <img src="" class="current-icon img-responsive" />
-      </div>
-      <div class="current-temp text-center"></div>
-    </div>
-  </div>
-  <div class="error"></div>
+
   <script>
     /*
      * NOTE: Remove the following code if creating your own weather layout from this one, as this section is specific to this

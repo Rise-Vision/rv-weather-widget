@@ -10,9 +10,9 @@
     return false;
   };
 
-  // document.body.onmousedown = function() {
-  //   return false;
-  // };
+  document.body.onmousedown = function() {
+    return false;
+  };
 
   google.setOnLoadCallback(function () {
     gadgets.rpc.register("rsparam_set_" + id, RiseVision.Weather.setParams);

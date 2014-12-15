@@ -17,7 +17,7 @@ RiseVision.Weather.Geolocation = function(config) {
     if (!!navigator.geolocation) {
       // This function will recover on its own if the Internet is disconnected.
       navigator.geolocation.getCurrentPosition(function(position) {
-        weatherUrl = config.weatherByLocation + "&lat=" + position.coords.latitude +
+        weatherUrl = config.urlByLocation + "&lat=" + position.coords.latitude +
           "&lon=" + position.coords.longitude + "&dummy=" + Math.ceil(Math.random() * 100);
 
         RiseVision.Weather.Provider.getWeather(weatherUrl, {

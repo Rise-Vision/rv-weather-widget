@@ -11,7 +11,7 @@ RiseVision.Weather.CustomAddress = function(config) {
     var weatherUrl = "";
 
     if (address !== "") {
-      weatherUrl = config.weatherByName + "&name=" + encodeURIComponent(address) +
+      weatherUrl = config.urlByName + "&name=" + encodeURIComponent(address) +
         "&dummy=" + Math.ceil(Math.random() * 100);
 
       RiseVision.Weather.Provider.getWeather(weatherUrl, {
