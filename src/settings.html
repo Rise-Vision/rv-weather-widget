@@ -60,29 +60,29 @@
               <div class="form-group">
                 <div class="radio">
                   <label>
-                    <input type="radio" value="current" ng-model="settings.additionalParams.layout" data-url="{{current}}">
+                    <input type="radio" value="current" ng-model="settings.additionalParams.layout">
                   </label>
                   <img src="img/thumbs/current-vertical.png" class="img-thumbnail" />
                   <img src="img/thumbs/current-horizontal.png" class="img-thumbnail" />
                 </div>
                 <div class="radio">
                   <label>
-                    <input type="radio" value="three-day" ng-model="settings.additionalParams.layout" data-url="{{threeDay}}">
+                    <input type="radio" value="three-day" ng-model="settings.additionalParams.layout">
                   </label>
                   <img src="img/thumbs/three-day-vertical.png" class="img-thumbnail" />
                   <img src="img/thumbs/three-day-horizontal.png" class="img-thumbnail" />
                 </div>
                 <div class="radio">
                   <label>
-                    <input type="radio" value="current-and-three-day" ng-model="settings.additionalParams.layout" data-url="{{currentAndThreeDay}}">
+                    <input type="radio" value="current-and-three-day" ng-model="settings.additionalParams.layout">
                   </label>
                   <img src="img/thumbs/current-and-three-day-vertical.png" class="img-thumbnail" />
                   <img src="img/thumbs/current-and-three-day-horizontal.png" class="img-thumbnail" />
                 </div>
                 <div class="radio">
                   <label for="url">
-                    <input type="radio" value="custom" ng-model="settings.additionalParams.layout" data-url="custom">{{"layout-url" | translate}}
-                    <url-field id="layout-url" url="settings.additionalParams.layoutUrl" hide-label="true"></url-field>
+                    <input type="radio" value="custom" ng-model="settings.additionalParams.layout">{{"layout-url" | translate}}
+                    <url-field name="layoutUrl" url="settings.additionalParams.layoutURL" ng-model="urlentry" hide-label="true" valid></url-field>
                   </label>
                 </div>
               </div>

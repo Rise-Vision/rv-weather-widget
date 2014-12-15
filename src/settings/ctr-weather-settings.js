@@ -18,19 +18,34 @@ angular.module("risevision.widget.weather.settings")
         }
       });
 
+      $scope.$watch("settings.additionalParams.layoutURL", function (url) {
+        if (url !== "undefined") {
+          $scope.settings.params.layoutURL = url;
+        }
+      });
+
       $scope.$watch("settings.additionalParams.layout", function (layout) {
         if (layout !== undefined) {
           if (layout === "current") {
             $scope.showCurrent = true;
             $scope.showForecast = false;
+            $scope.settings.params.layoutURL = current;
           }
           else if (layout === "three-day") {
             $scope.showCurrent = false;
             $scope.showForecast = true;
+            $scope.settings.params.layoutURL = threeDay;
           }
           else if ((layout === "current-and-three-day") || (layout === "custom")) {
             $scope.showCurrent = true;
             $scope.showForecast = true;
+
+            if (layout === "custom") {
+              $scope.settings.params.layoutURL = $scope.settings.additionalParams.layoutURL;
+            }
+            else {
+              $scope.settings.params.layoutURL = currentAndThreeDay;
+            }
           }
         }
       });
@@ -51,11 +66,13 @@ angular.module("risevision.widget.weather.settings")
     }
   ])
   .value("defaultSettings", {
-    params: {},
+    params: {
+      "layoutURL": ""
+    },
     additionalParams: {
       "terms": false,
       "layout": "current",
-      "layoutUrl": "",
+      "layoutURL": "",
       "currentTempFont": {
         "size": "60",
         "bold" : true
