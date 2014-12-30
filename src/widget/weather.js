@@ -238,7 +238,7 @@ RiseVision.Weather = (function (gadgets, config, i18n) {
   function retry() {
     if (isLoading) {
       $(".container").hide();
-      $(".error").text("Unable to retrieve weather data for that location.").show(); // TODO: Translate this.
+      $(".error").text(i18n.t("errors.no-data")).show();
     }
 
     setTimeout(function() {
@@ -323,8 +323,6 @@ RiseVision.Weather = (function (gadgets, config, i18n) {
    *  Public Methods
    */
   function setParams(names, values) {
-    var address;
-
     if (Array.isArray(names) && names.length > 0 && names[0] === "additionalParams") {
       if (Array.isArray(values) && values.length > 0) {
         params = JSON.parse(values[0]);
@@ -332,7 +330,7 @@ RiseVision.Weather = (function (gadgets, config, i18n) {
         // Load fonts.
         var fontSettings = [
           {
-            "class": "current-tmep",
+            "class": "current-temp",
             "fontSetting": params.currentTempFont
           },
           {
@@ -358,17 +356,11 @@ RiseVision.Weather = (function (gadgets, config, i18n) {
 
         if (!params.terms) {
           $(".container").hide();
-          $(".error").text("You must check the Acceptance setting in order to use this Gadget.").show();
+          $(".error").text(i18n.t("errors.no-terms")).show();
           ready();
         }
 
-        //$container.height(prefs.getInt("rsH")); // Needed?
         getWeather();
-      }
-    }
-    else if (Array.isArray(names) && names.length > 0 && names[0] === "displayAddress") {
-      if (Array.isArray(values) && values.length > 0) {
-        address = JSON.parse(values[0]);
       }
     }
   }

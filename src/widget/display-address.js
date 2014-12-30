@@ -48,7 +48,7 @@ RiseVision.Weather.DisplayAddress = function(gadgets) {
 
     if (id && id !== "") {
       gadgets.rpc.register("rsparam_set_" + id, setParams);
-      gadgets.rpc.call("", "rsparam_get", null, id, "displayAddress");
+      gadgets.rpc.call("", "rsparam_get", null, id, ["displayAddress"]);
     }
   }
 

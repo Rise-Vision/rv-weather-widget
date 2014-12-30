@@ -204,23 +204,27 @@
 
 gulp.task("test:unit:widget", factory.testUnitAngular({
     testFiles: [
-      "src/components/jquery/dist/jquery.js",
-      "test/data/custom-address-mock-data.js",
       "node_modules/widget-tester/mocks/gadget-mocks.js",
-      "src/config/test.js",
+      "node_modules/widget-tester/mocks/gadgets.io-mock.js",
+      "node_modules/widget-tester/mocks/geolocation-mock.js",
+      "test/data/current-mock-data.js",
+      "test/data/weather-api-mock-data.js",
+      "src/components/jquery/dist/jquery.js",
       "src/components/widget-common/dist/common.js",
+      "src/components/i18next/i18next.js",
+      "src/config/test.js",
       "src/widget/weather.js",
+      "src/widget/provider.js",
       "src/widget/geolocation.js",
       "src/widget/display-address.js",
+      "src/widget/custom-address.js",
       "src/widget/main.js",
-      "src/widget/provider.js",
-      "test/weather-api-mock.js",
       "test/unit/widget/**/*spec.js"
     ]
   }));
 
   gulp.task("test:unit", function(cb) {
-    runSequence("test:unit:settings", cb);
+    runSequence("test:unit:settings", "test:unit:widget", cb);
   });
 
   gulp.task("test:metrics", factory.metrics());
