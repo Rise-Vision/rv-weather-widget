@@ -51,6 +51,6 @@
     "run-sequence": "^0.3.2",
     "sinon": "^1.12.1",
     "sinon-chai": "^2.6.0",
-    "widget-tester": "https://github.com/Rise-Vision/widget-tester.git"
+    "widget-tester": "git://github.com/Rise-Vision/widget-tester.git"
   }
 }
