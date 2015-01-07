@@ -11,8 +11,6 @@
   chai.use(chaiAsPromised);
   expect = chai.expect;
 
-  browser.driver.manage().window().setSize(1024, 768);
-
   describe("Weather Widget Settings", function() {
     beforeEach(function () {
       browser.get("/src/settings-e2e.html");

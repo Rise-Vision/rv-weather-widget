@@ -4,35 +4,28 @@
   "use strict";
 
   var gulp = require("gulp");
-  var gutil = require("gulp-util");
-  var rimraf = require("gulp-rimraf");
   var bump = require("gulp-bump");
   var jshint = require("gulp-jshint");
   var minifyCSS = require("gulp-minify-css");
-  var usemin = require("gulp-usemin");
+  var rename = require("gulp-rename");
+  var rimraf = require("gulp-rimraf");
+  var sourcemaps = require("gulp-sourcemaps");
   var uglify = require("gulp-uglify");
+  var usemin = require("gulp-usemin");
+  var gutil = require("gulp-util");
   var runSequence = require("run-sequence");
   var path = require("path");
-  var rename = require("gulp-rename");
   var factory = require("widget-tester").gulpTaskFactory;
-  var sourcemaps = require("gulp-sourcemaps");
 
   var appJSFiles = [
     "src/**/*.js",
     "!./src/components/**/*"
   ];
 
-  gulp.task("clean-dist", function () {
+  gulp.task("clean", function () {
     return gulp.src("dist", {read: false})
       .pipe(rimraf());
   });
-
-  gulp.task("clean-tmp", function () {
-    return gulp.src("tmp", {read: false})
-      .pipe(rimraf());
-  });
-
-  gulp.task("clean", ["clean-dist", "clean-tmp"]);
 
   gulp.task("config", function() {
     var env = process.env.NODE_ENV || "dev";
@@ -149,6 +142,7 @@
       "src/components/bootstrap-sass-official/assets/javascripts/bootstrap.js",
       "src/components/angular-bootstrap/ui-bootstrap-tpls.js",
       "src/components/rv-common-i18n/dist/i18n.js",
+      "src/components/component-storage-selector/dist/storage-selector.js",
       "src/components/widget-settings-ui-components/dist/js/**/*.js",
       "src/components/widget-settings-ui-core/dist/*.js",
       "src/components/bootstrap-form-components/dist/js/**/*.js",
@@ -187,7 +181,7 @@ gulp.task("test:unit:widget", factory.testUnitAngular({
   gulp.task("test:metrics", factory.metrics());
 
   gulp.task("test", function(cb) {
-    runSequence("test:e2e", "test:unit", "test:metrics", cb);
+    runSequence("build", "test:e2e", "test:unit", "test:metrics", cb);
   });
 
   gulp.task("build", function (cb) {
@@ -195,6 +189,6 @@ gulp.task("test:unit:widget", factory.testUnitAngular({
   });
 
   gulp.task("default", function(cb) {
-    runSequence("test", "build", cb);
+    runSequence("test", cb);
   });
 })();

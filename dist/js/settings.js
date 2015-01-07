@@ -29303,6 +29303,108 @@ angular.module('risevision.widget.common.fontsizepicker', [])
     };
   }]);
 
+/* global CONFIG: true */
+/* exported CONFIG */
+if (typeof CONFIG === "undefined") {
+  var CONFIG = {
+    // variables go here
+  };
+}
+
+(function () {
+
+  "use strict";
+
+  angular.module("risevision.widget.common.storage-selector", ["ui.bootstrap"])
+  .directive("storageSelector", ["$window", "$templateCache", "$modal", "$sce", "$log",
+    function($window, $templateCache, $modal, $sce, $log){
+      return {
+        restrict: "EA",
+        scope : {
+          local: "@",
+          useCtrl: "@",
+          instanceTemplate: "@",
+          companyId : "@"
+        },
+        template: $templateCache.get("storage-selector.html"),
+        link: function (scope) {
+
+          scope.storageUrl = "";
+
+          scope.open = function() {
+            var modalInstance = $modal.open({
+              templateUrl: scope.instanceTemplate || "storage.html",
+              controller: scope.useCtrl || "StorageCtrl",
+              size: "lg",
+              backdrop: true,
+              resolve: {
+                storageUrl: function () {
+                  return {url: $sce.trustAsResourceUrl(scope.storageUrl)};
+                }
+              }
+            });
+
+            modalInstance.result.then(function (files) {
+              // emit an event with name "files", passing the array of files selected from storage
+              scope.$emit("picked", files);
+
+            }, function () {
+              $log.info("Modal dismissed at: " + new Date());
+            });
+
+          };
+
+          if (scope.local){
+            scope.storageUrl = "http://storage.risevision.com/storage-modal.html#/files/local";
+          } else {
+            scope.$watch("companyId", function (companyId) {
+              if (companyId) {
+                scope.storageUrl = "http://storage.risevision.com/storage-modal.html#/files/" + companyId;
+              }
+            });
+          }
+        }
+      };
+   }
+  ]);
+})();
+
+
+
+angular.module("risevision.widget.common.storage-selector")
+  .controller("StorageCtrl", ["$scope", "$modalInstance", "storageUrl", "$window", "$log",
+    function($scope, $modalInstance, storageUrl, $window/*, $log*/){
+
+    $scope.storageUrl = storageUrl;
+
+    $window.addEventListener("message", function (event) {
+      if (event.origin !== "http://storage.risevision.com") { return; }
+
+      if (Array.isArray(event.data)) {
+        $modalInstance.close(event.data);
+      } else if (typeof event.data === "string") {
+        if (event.data === "close") {
+          $modalInstance.dismiss("cancel");
+        }
+      }
+    });
+
+  }]);
+
+(function(module) {
+try { app = angular.module("risevision.widget.common.storage-selector"); }
+catch(err) { app = angular.module("risevision.widget.common.storage-selector", []); }
+app.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("storage-selector.html",
+    "<button class=\"btn btn-widget-icon-storage\" ng-click=\"open()\" type=\"button\" />\n" +
+    "<script type=\"text/ng-template\" id=\"storage.html\">\n" +
+    "        <iframe class=\"modal-dialog\" scrolling=\"no\" marginwidth=\"0\" src=\"{{ storageUrl.url }}\"></iframe>\n" +
+    "</script>\n" +
+    "");
+}]);
+})();
+
 if(typeof TEMPLATES === 'undefined') {var TEMPLATES = {};}
 TEMPLATES['alignment.html'] = "<div class=\"btn-group alignment\">\n" +
     "  <button type=\"button\" class=\"btn btn-default btn-sm btn-alignment dropdown-toggle\"\n" +
@@ -29745,7 +29847,9 @@ if (typeof WIDGET_SETTINGS_UI_CONFIG === "undefined") {
   "use strict";
 
   angular.module("risevision.widget.common.url-field",
-    ["risevision.common.i18n", "risevision.widget.common.tooltip"])
+    ["risevision.common.i18n",
+    "risevision.widget.common.tooltip",
+    "risevision.widget.common.storage-selector"])
 
     .directive("urlField", ["$templateCache", "$log", function ($templateCache, $log) {
       return {
@@ -29753,7 +29857,9 @@ if (typeof WIDGET_SETTINGS_UI_CONFIG === "undefined") {
         require: "?ngModel",
         scope: {
           url: "=",
-          hideLabel: "@"
+          hideLabel: "@",
+          hideStorage: "@",
+          companyId: "@"
         },
         template: $templateCache.get("_angular/url-field/url-field.html"),
         link: function (scope, element, attrs, ctrl) {
@@ -29789,6 +29895,12 @@ if (typeof WIDGET_SETTINGS_UI_CONFIG === "undefined") {
           // Validation state
           scope.valid = true;
 
+          if (!scope.hideStorage) {
+            scope.$on("picked", function (event, data) {
+              scope.url = data[0];
+            });
+          }
+
           scope.$watch("url", function (url) {
             if (url && scope.doValidation) {
               scope.valid = testUrl(scope.url);
@@ -29813,6 +29925,7 @@ if (typeof WIDGET_SETTINGS_UI_CONFIG === "undefined") {
               }
             }
           });
+
         }
       };
     }]);
@@ -29826,7 +29939,10 @@ app.run(["$templateCache", function($templateCache) {
   $templateCache.put("_angular/url-field/url-field.html",
     "<div class=\"form-group\" >\n" +
     "  <label for=\"url\" ng-if=\"!hideLabel\">{{ \"url.label\" | translate }}</label>\n" +
-    "  <input id=\"url\" name=\"url\" type=\"text\" ng-model=\"url\" class=\"form-control\" placeholder=\"http://\">\n" +
+    "  <div ng-class=\"{'input-group':!hideStorage}\">\n" +
+    "    <input id=\"url\" name=\"url\" type=\"text\" ng-model=\"url\" class=\"form-control\" placeholder=\"http://\">\n" +
+    "    <span class=\"input-url-addon\" ng-if=\"!hideStorage\"><storage-selector company-id=\"{{companyId}}\"></storage-selector></span>\n" +
+    "  </div>\n" +
     "  <p ng-if=\"!valid\" class=\"help-block\">{{ \"url.invalid\" | translate }}</p>\n" +
     "  <div class=\"checkbox\" ng-show=\"forcedValid || !valid\">\n" +
     "    <label>\n" +
