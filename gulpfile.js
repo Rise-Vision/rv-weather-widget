@@ -3,28 +3,28 @@
 (function () {
   "use strict";
 
-  var gulp = require("gulp");
+
   var bump = require("gulp-bump");
+  var del = require("del");
+  var factory = require("widget-tester").gulpTaskFactory;
+  var gulp = require("gulp");
+  var gutil = require("gulp-util");
   var jshint = require("gulp-jshint");
   var minifyCSS = require("gulp-minify-css");
+  var path = require("path");
   var rename = require("gulp-rename");
-  var rimraf = require("gulp-rimraf");
+  var runSequence = require("run-sequence");
   var sourcemaps = require("gulp-sourcemaps");
   var uglify = require("gulp-uglify");
   var usemin = require("gulp-usemin");
-  var gutil = require("gulp-util");
-  var runSequence = require("run-sequence");
-  var path = require("path");
-  var factory = require("widget-tester").gulpTaskFactory;
 
   var appJSFiles = [
     "src/**/*.js",
     "!./src/components/**/*"
   ];
 
-  gulp.task("clean", function () {
-    return gulp.src("dist", {read: false})
-      .pipe(rimraf());
+  gulp.task("clean", function (cb) {
+    del(["./dist/**"], cb);
   });
 
   gulp.task("config", function() {
@@ -178,10 +178,9 @@ gulp.task("test:unit:widget", factory.testUnitAngular({
     runSequence("test:unit:settings", "test:unit:widget", cb);
   });
 
-  gulp.task("test:metrics", factory.metrics());
-
+  // Need to build before running tests in order to get translations to work.
   gulp.task("test", function(cb) {
-    runSequence("build", "test:e2e", "test:unit", "test:metrics", cb);
+    runSequence("build", "test:e2e", "test:unit", cb);
   });
 
   gulp.task("build", function (cb) {
@@ -189,6 +188,6 @@ gulp.task("test:unit:widget", factory.testUnitAngular({
   });
 
   gulp.task("default", function(cb) {
-    runSequence("test", cb);
+    runSequence("test", "build", cb);
   });
 })();
