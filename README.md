@@ -24,11 +24,13 @@ The images for the Weather Widget are stored in the *images* folder. Each icon i
 
 Next, open up the *weather.js* file in a code editor and do a search for `hostURL`. You are looking for the following line:
 
-`this.hostURL = "https://s3.amazonaws.com/Widget-Weather/";`
+```js
+this.hostURL = "https://s3.amazonaws.com/Widget-Weather/";
+```
 
 Replace this URL with the location to which you plan to upload your custom Weather Widget. The Widget will look for images in an *images* sub-folder at this location. If you are using images with a file extension other than *png*, you will also need to change the following line to use the appropriate file extension (e.g. *gif*):
 
-```
+```js
 RiseVision.Weather.Controller.prototype.loadImage = function(icon, $element) {
   var self = this, img = new Image(), url = this.hostURL + "images/" + icon + ".png";
   ...
@@ -37,7 +39,9 @@ RiseVision.Weather.Controller.prototype.loadImage = function(icon, $element) {
 
 In the layout file you wish to use (i.e. *current.html*, *three-day.html* or *current-and-three-day.html*), replace the following URL with one to the custom version of *weather.js* you just created (you may want to create a minified version and link to that instead):
 
-`<script src="js/weather.min.js"></script>`
+```html
+<script src="js/weather.min.js"></script>
+```
 
 Once done, upload all of the Widget code and images to a hosting server. Next, follow [these instructions](http://www.risevision.com/help/users/what-are-gadgets/content/widgets/) to add a new Widget to the Rise Vision Platform. Be sure to enter the URL to *settings.html* in the *Custom UI URL* field and any one of the 3 pre-defined layouts, or your own custom layout, in the *URL* field. Now you can add the Weather Widget to a Presentation and it will use your custom weather icons.
 
@@ -77,7 +81,8 @@ At this time Chrome is the only browser that this project and Rise Vision suppor
 To make changes to the Widget, you'll first need to install [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 The Widget can now be installed by executing the following command in Terminal:
-```
+
+```sh
 git clone https://github.com/Rise-Vision/widget-weather.git
 ```
 
